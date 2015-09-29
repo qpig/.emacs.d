@@ -2,9 +2,11 @@
 
 THIS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-if ! [[ -L $HOME/.spacemacs ]] && [[ -f $HOME/.spacemacs ]]; then
+if ! [[ -L $HOME/.spacemacs ]] ; then
+	if [[ -e $HOME/.spacemacs ]]; then
+		rm $HOME/.spacemacs
+	fi
 	echo "Link .spacemacs"
-	rm $HOME/.spacemacs
 	ln -s $THIS_DIR/.spacemacs $HOME/.spacemacs	
 fi
 
