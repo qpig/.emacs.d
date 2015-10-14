@@ -32,4 +32,5 @@
 ;; https://github.com/jwiegley/use-package
 
 (defun youdao/init-youdao-dictionary ()
-  (evil-leader/set-key "oy" 'youdao-dictionary-search-at-point+))
+  (evil-leader/set-key "oy" 'youdao-dictionary-search-at-point+)
+  (evil-leader/set-key "oo" 'youdao-dictionary-play-voice-at-point))
