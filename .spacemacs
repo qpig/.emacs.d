@@ -43,8 +43,9 @@ values."
      shell-scripts
      smex
      (shell :variables
-            shell-default-shell 'shell
-            shell-default-term-shell "/bin/bash")
+            shell-default-shell 'ansi-term
+            shell-default-term-shell "/bin/bash"
+            shell-default-height 40)
      syntax-checking
      spell-ckecking
      version-control
