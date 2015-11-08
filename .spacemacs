@@ -37,7 +37,7 @@ values."
      (git :variables
           git-magit-status-fullscreen t)
      github
-     ;;markdown
+     markdown
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      org
      shell-scripts
