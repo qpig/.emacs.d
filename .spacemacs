@@ -23,27 +23,32 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-private-snippets-directory nil
+                      auto-completion-enable-help-tooltip t)
      better-defaults
      c-c++
      emacs-lisp
-     gtags
-     shell-scripts
-     ;;(git :variables
-     ;;     git-magit-status-fullscreen t)
-     github
-     markdown
-     org
      eyebrowse
-     ibuffer
+     gtags
+     (git :variables
+          git-magit-status-fullscreen t)
+     github
+     ;;markdown
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     org
+     shell-scripts
      smex
-     youdao
      (shell :variables
-            shell-default-shell 'ansi-term
-            shell-default-term-shell "/bin/zsh")
+            shell-default-shell 'shell
+            shell-default-term-shell "/bin/bash")
      syntax-checking
      spell-ckecking
      version-control
+     youdao
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
