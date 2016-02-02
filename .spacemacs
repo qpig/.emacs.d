@@ -37,7 +37,7 @@ values."
      (git :variables
           git-magit-status-fullscreen t)
      github
-     markdown
+     ;; markdown
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      org
      shell-scripts
@@ -46,8 +46,8 @@ values."
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/bash"
             shell-default-height 40)
-     syntax-checking
-     spell-ckecking
+     ;; syntax-checking
+     ;; spell-ckecking
      version-control
      youdao
      )
