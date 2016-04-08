@@ -27,28 +27,36 @@ values."
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
                       auto-completion-complete-with-key-sequence nil
-                      auto-completion-private-snippets-directory nil
-                      auto-completion-enable-help-tooltip t)
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-enable-help-tooltip t
+     ;;                 auto-completion-enable-sort-by-usage t
+     ;;                 auto-completion-enable-snippets-in-popup t
+                      auto-completion-private-snippets-directory nil)
+     command-log
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
+     ;; semantic
      better-defaults
-     c-c++
+     (c-c++ :variables c-c++-enable-clang-support t)
      emacs-lisp
-     eyebrowse
+     ;; eyebrowse
      gtags
-     (git :variables
-          git-magit-status-fullscreen t)
-     github
+     ;; (git :variables
+     ;;     git-magit-status-fullscreen t)
+     ;; github
      ;; markdown
-     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     ;; (ibuffer :variables ibuffer-group-buffers-by 'projects)
      org
+     ;;    search-engine
      shell-scripts
      smex
-     (shell :variables
-            shell-default-shell 'ansi-term
-            shell-default-term-shell "/bin/bash"
-            shell-default-height 40)
-     ;; syntax-checking
+     ;; (shell :variables
+     ;;        shell-default-shell 'ansi-term
+     ;;        shell-default-term-shell "/bin/bash"
+     ;;        shell-default-height 40)
+     syntax-checking
      ;; spell-ckecking
      version-control
+     ;; ycmd
      youdao
      )
    ;; List of additional packages that will be installed without being
@@ -93,10 +101,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(
+                         solarized-dark
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
-                         solarized-dark
                          leuven
                          monokai
                          zenburn)
@@ -207,10 +216,12 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+  (add-hook 'prog-mode-hook 'linum-mode)
   (defun gtd()
     (interactive)
     (find-file "~/Nutstore/gtd.org")
     )
+;;  (load-file "~/.emacs.d/graphviz-dot-mode.el")
 ;;  (add-to-list 'org-latex-packages-alist '("" "minted"))
 ;;  (setq org-latex-listings 'minted)
   )
@@ -224,6 +235,12 @@ layers configuration. You are free to put any user code."
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           ))
+  (set-variable 'ycmd-server-command '("python" "/home/pig/github/ycmd/ycmd"))
+;;  (push '(baidu
+;;          :name "Baidu"
+;;          :url "http://www.baidu.com/s?wd=%s")
+;;        search-engine-alist)
+;;  (set-variable 'ycmd-extra-conf-whitelist '("~/github/dot_demo/*"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
