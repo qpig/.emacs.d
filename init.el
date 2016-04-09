@@ -40,13 +40,14 @@ values."
      emacs-lisp
      ;; eyebrowse
      gtags
-     ;; (git :variables
-     ;;     git-magit-status-fullscreen t)
+     (git :variables
+          git-magit-status-fullscreen t)
      ;; github
      ;; markdown
-     ;; (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      org
-     ;;    search-engine
+     ranger
+     search-engine
      shell-scripts
      smex
      ;; (shell :variables
@@ -236,11 +237,11 @@ layers configuration. You are free to put any user code."
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           ))
   (set-variable 'ycmd-server-command '("python" "/home/pig/github/ycmd/ycmd"))
-;;  (push '(baidu
-;;          :name "Baidu"
-;;          :url "http://www.baidu.com/s?wd=%s")
-;;        search-engine-alist)
-;;  (set-variable 'ycmd-extra-conf-whitelist '("~/github/dot_demo/*"))
+  (push '(baidu
+          :name "Baidu"
+          :url "http://www.baidu.com/s?wd=%s")
+        search-engine-alist)
+  (set-variable 'ycmd-extra-conf-whitelist '("~/github/dot_demo/*"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
