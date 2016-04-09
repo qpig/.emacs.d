@@ -36,7 +36,8 @@ values."
      (colors :variables colors-enable-nyan-cat-progress-bar t)
      ;; semantic
      better-defaults
-     (c-c++ :variables c-c++-enable-clang-support t)
+     ;; (c-c++ :variables c-c++-enable-clang-support t)
+     c-c++
      emacs-lisp
      ;; eyebrowse
      gtags
@@ -218,10 +219,6 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
   (add-hook 'prog-mode-hook 'linum-mode)
-  (defun gtd()
-    (interactive)
-    (find-file "~/Nutstore/gtd.org")
-    )
 ;;  (load-file "~/.emacs.d/graphviz-dot-mode.el")
 ;;  (add-to-list 'org-latex-packages-alist '("" "minted"))
 ;;  (setq org-latex-listings 'minted)
@@ -236,12 +233,13 @@ layers configuration. You are free to put any user code."
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           ))
-  (set-variable 'ycmd-server-command '("python" "/home/pig/github/ycmd/ycmd"))
+;;  (set-variable 'ycmd-server-command '("python" "/home/pig/github/ycmd/ycmd"))
+;;  (set-variable 'ycmd-extra-conf-whitelist '("~/github/dot_demo/*"))
   (push '(baidu
           :name "Baidu"
           :url "http://www.baidu.com/s?wd=%s")
         search-engine-alist)
-  (set-variable 'ycmd-extra-conf-whitelist '("~/github/dot_demo/*"))
+  (setq org-agenda-files (quote ("~/Nutstore/org-notes" )))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
