@@ -34,6 +34,23 @@ values."
                       auto-completion-private-snippets-directory nil)
      command-log
      (colors :variables colors-enable-nyan-cat-progress-bar t)
+     (chinese :variables
+              chinese-enable-fcitx t
+              chinese-enable-youdao-dict t
+              chinese-enable-avy-pinyin nil
+              :config
+              (setq default-input-method "chinese-pyim")
+              (setq pyim-default-pinyin-scheme 'pyim-shuangpin)
+              (setq-default pyim-english-input-switch-functions
+                            '(pyim-probe-dynamic-english
+                              pyim-probe-isearch-mode
+                              pyim-probe-program-mode
+                              pyim-probe-org-structure-template))
+              (setq-default pyim-punctuation-half-width-functions
+                            '(pyim-probe-punctuation-line-beginning
+                              pyim-probe-punctuation-after-punctuation))
+              (setqa apyim-enable-words-predict
+                    '(dabbrev pinyin-similar pinyin-shouzimu guess-words)))
      ;; semantic
      better-defaults
      ;; (c-c++ :variables c-c++-enable-clang-support t)
@@ -56,10 +73,10 @@ values."
      ;;        shell-default-term-shell "/bin/bash"
      ;;        shell-default-height 40)
      syntax-checking
-     ;; spell-ckecking
+     spell-checking
      version-control
      ;; ycmd
-     youdao
+     ;; youdao
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -222,6 +239,8 @@ user code."
 ;;  (load-file "~/.emacs.d/graphviz-dot-mode.el")
 ;;  (add-to-list 'org-latex-packages-alist '("" "minted"))
 ;;  (setq org-latex-listings 'minted)
+  (evil-leader/set-key "oy" 'youdao-dictionary-search-at-point+)
+  (evil-leader/set-key "oo" 'youdao-dictionary-play-voice-at-point)
   )
 
 (defun dotspacemacs/user-config ()
@@ -244,3 +263,21 @@ layers configuration. You are free to put any user code."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(pyim-dicts
+   (quote
+    ((:name "my_chinese_dict" :file "/home/pig/.emacs.d/.cache/chinese-pyim-bigdict.pyim" :coding utf-8-unix :dict-type pinyin-dict)
+     (:name "计算机词汇大全【官方推荐】" :file "/home/pig/.emacs.d/.cache/计算机词汇大全【官方推荐】.pyim" :coding utf-8 :dict-type pinyin-dict)
+     (:name "成语俗语【官方推荐】" :file "/home/pig/.emacs.d/.cache/成语俗语【官方推荐】.pyim" :coding utf-8 :dict-type pinyin-dict)
+     (:name "网络流行新词【官方推荐】" :file "/home/pig/.emacs.d/.cache/网络流行新词【官方推荐】.pyim" :coding utf-8 :dict-type pinyin-dict)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
