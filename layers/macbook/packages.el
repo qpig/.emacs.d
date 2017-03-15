@@ -122,10 +122,10 @@ Each entry is either:
       "r h" 'rtags-print-class-hierarchy
       "r a" 'rtags-print-source-arguments))
 
-  (define-key c-mode-base-map (kbd "M-[]") (function rtags-location-stack-back))
+  (define-key c-mode-base-map (kbd "M-[") (function rtags-location-stack-back))
   (define-key c-mode-base-map (kbd "M-]") (function rtags-location-stack-forward))
 
-  (define-key global-map (kbd "M-[]") (function rtags-location-stack-back))
+  (define-key global-map (kbd "M-[") (function rtags-location-stack-back))
   (define-key global-map (kbd "M-]") (function rtags-location-stack-forward))
   )
 ;;; packages.el ends here)
