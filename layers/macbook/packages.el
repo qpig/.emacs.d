@@ -99,28 +99,33 @@ Each entry is either:
     (evil-leader/set-key-for-mode mode
       "r ." 'rtags-find-symbol-at-point
       "r ," 'rtags-find-references-at-point
-      "r v" 'rtags-find-virtuals-at-point
-      "r V" 'rtags-print-enum-value-at-point
       "r /" 'rtags-find-all-references-at-point
       "r >" 'rtags-find-symbol
       "r <" 'rtags-find-references
       "r [" 'rtags-location-stack-back
       "r ]" 'rtags-location-stack-forward
-      "r d" 'rtags-diagnostics
-      "r g" 'rtags-guess-function-at-point
-      "r p" 'rtags-set-current-project
-      "r P" 'rtags-print-dependencies
-      "r e" 'rtags-preprocess-file
-      "r r" 'rtags-rename-symbol
-      "r m" 'rtags-symbol-info
-      "r s" 'rtags-display-summary
       "r ;" 'rtags-find-file
+      "r a" 'rtags-print-source-arguments
+      "r c" 'rtags-find-functions-called-by-this-function
+      "r C" 'rtags-compile-file
+      "r d" 'rtags-diagnostics
+      "r e" 'rtags-preprocess-file
       "r f" 'rtags-fixit
-      "r l" 'rtags-copy-and-print-current-location
-      "r x" 'rtags-fix-fixit-at-point
-      "r i" 'rtags-imenu
+      "r g" 'rtags-guess-function-at-point
       "r h" 'rtags-print-class-hierarchy
-      "r a" 'rtags-print-source-arguments))
+      "r i" 'rtags-imenu
+      "r I" 'rtags-include-file
+      "r l" 'rtags-copy-and-print-current-location
+      "r m" 'rtags-symbol-info
+      "r p" 'rtags-print-dependencies
+      "r P" 'rtags-set-current-project
+      "r r" 'rtags-rename-symbol
+      "r s" 'rtags-display-summary
+      "r t" 'rtags-symbol-type
+      "r v" 'rtags-find-virtuals-at-point
+      "r V" 'rtags-print-enum-value-at-point
+      "r x" 'rtags-fix-fixit-at-point
+      ))
 
   (define-key c-mode-base-map (kbd "M-[") (function rtags-location-stack-back))
   (define-key c-mode-base-map (kbd "M-]") (function rtags-location-stack-forward))
