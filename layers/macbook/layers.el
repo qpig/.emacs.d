@@ -1,6 +1,5 @@
 (configuration-layer/declare-layers '(
                                       emacs-lisp
-                                      ;; (c-c++ :variables c-c++-enable-clang-support t)
                                       c-c++
                                       (auto-completion :variables
                                                        auto-completion-return-key-behavior 'complete
