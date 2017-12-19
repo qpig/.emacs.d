@@ -31,6 +31,8 @@
 
 (defconst linux-packages
   '(
+    flycheck-rtags
+    helm-rtags
     rtags
     vhdl-tools
     )
@@ -61,6 +63,14 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(defun linux/init-flycheck-rtags ()
+  (use-package flycheck-rtags
+    :defer t))
+
+(defun linux/init-helm-rtags ()
+  (use-package helm-rtags
+    :defer t))
+
 (defun linux/init-vhdl-tools ()
   (use-package vhdl-tools
     :defer t))
@@ -77,7 +87,7 @@ Each entry is either:
 
 (defun linux/post-init-rtags ()
   (require 'flycheck-rtags)
-  (require 'rtags-helm)
+  (require 'helm-rtags)
   (setq rtags-use-helm t)
 
   (setq rtags-completions-enabled t)

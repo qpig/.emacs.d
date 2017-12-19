@@ -121,8 +121,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("DejaVu Sans"
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -284,8 +284,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 ;;        '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
 ;;          ("org-cn"   . "https://elpa.zilongshanren.com/org/")
 ;;          ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
-  (setq tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+;;  (setq tramp-ssh-controlmaster-options
+;;        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq exec-path-from-shell-check-startup-files nil)
   )
 
