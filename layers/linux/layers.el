@@ -16,7 +16,7 @@
 
                                       ;; something I know
                                       (ranger :variables ranger-cleanup-eagerly t)
-                                      gtags
+                                      cscope
                                       (git :variables git-magit-status-fullscreen t)
                                       smex
                                       (ibuffer :variables ibuffer-group-buffers-by 'projects)
