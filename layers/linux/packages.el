@@ -31,9 +31,6 @@
 
 (defconst linux-packages
   '(
-    flycheck-rtags
-    helm-rtags
-    rtags
     vhdl-tools
     )
   "The list of Lisp packages required by the linux layer.
@@ -63,14 +60,6 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun linux/init-flycheck-rtags ()
-  (use-package flycheck-rtags
-    :defer t))
-
-(defun linux/init-helm-rtags ()
-  (use-package helm-rtags
-    :defer t))
-
 (defun linux/init-vhdl-tools ()
   (use-package vhdl-tools
     :defer t))
@@ -81,53 +70,4 @@ Each entry is either:
               (vhdl-tools-mode 1)))
   (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil))
 
-(defun linux/init-rtags ()
-  (use-package rtags
-    :defer t))
-
-(defun linux/post-init-rtags ()
-  (require 'flycheck-rtags)
-  (require 'helm-rtags)
-  (setq rtags-use-helm t)
-
-  (setq rtags-completions-enabled t)
-  (push 'company-rtags company-backends-c-mode-common)
-  (rtags-enable-standard-keybindings)
-  (setq rtags-jump-to-first-match nil)
-  (setq rtags-autostart-diagnostics t)
-
-
-  (dolist (mode '(c-mode c++-mode))
-    (evil-leader/set-key-for-mode mode
-      "r ." 'rtags-find-symbol-at-point
-      "r ," 'rtags-find-references-at-point
-      "r v" 'rtags-find-virtuals-at-point
-      "r V" 'rtags-print-enum-value-at-point
-      "r /" 'rtags-find-all-references-at-point
-      "r >" 'rtags-find-symbol
-      "r <" 'rtags-find-references
-      "r [" 'rtags-location-stack-back
-      "r ]" 'rtags-location-stack-forward
-      "r d" 'rtags-diagnostics
-      "r g" 'rtags-guess-function-at-point
-      "r p" 'rtags-set-current-project
-      "r P" 'rtags-print-dependencies
-      "r e" 'rtags-preprocess-file
-      "r r" 'rtags-rename-symbol
-      "r m" 'rtags-symbol-info
-      "r s" 'rtags-display-summary
-      "r ;" 'rtags-find-file
-      "r f" 'rtags-fixit
-      "r l" 'rtags-copy-and-print-current-location
-      "r x" 'rtags-fix-fixit-at-point
-      "r i" 'rtags-imenu
-      "r h" 'rtags-print-class-hierarchy
-      "r a" 'rtags-print-source-arguments))
-
-  (define-key c-mode-base-map (kbd "M-[") (function rtags-location-stack-back))
-  (define-key c-mode-base-map (kbd "M-]") (function rtags-location-stack-forward))
-
-  (define-key global-map (kbd "M-[") (function rtags-location-stack-back))
-  (define-key global-map (kbd "M-]") (function rtags-location-stack-forward))
-  )
 ;;; packages.el ends here)

@@ -1,6 +1,9 @@
 (configuration-layer/declare-layers '(
                                       emacs-lisp
-                                      c-c++
+                                      (c-c++ :variables
+                                             c-c++-enable-c++11 t
+                                             c-c++-enable-rtags-support t
+                                             c-c++-default-mode-for-headers 'c++-mode)
                                       (auto-completion :variables
                                                        auto-completion-return-key-behavior 'complete
                                                        auto-completion-tab-key-behavior nil
