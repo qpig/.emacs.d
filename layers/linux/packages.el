@@ -31,7 +31,7 @@
 
 (defconst linux-packages
   '(
-    vhdl-tools
+    ;; vhdl-tools
     )
   "The list of Lisp packages required by the linux layer.
 
@@ -60,14 +60,14 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun linux/init-vhdl-tools ()
-  (use-package vhdl-tools
-    :defer t))
+;; (defun linux/init-vhdl-tools ()
+;;   (use-package vhdl-tools
+;;     :defer t))
 
-(defun linux/post-init-vhdl-tools ()
-  (add-hook 'vhdl-mode-hook
-            (lambda ()
-              (vhdl-tools-mode 1)))
-  (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil))
+;; (defun linux/post-init-vhdl-tools ()
+;;   (add-hook 'vhdl-mode-hook
+;;             (lambda ()
+;;               (vhdl-tools-mode 1)))
+;;   (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil))
 
 ;;; packages.el ends here)
