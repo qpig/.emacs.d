@@ -2,9 +2,8 @@
                                       emacs-lisp
                                       (c-c++ :variables
                                              c-c++-enable-c++11 t
-                                             c-c++-enable-rtags-support 'no-completion
                                              c-c++-default-mode-for-headers 'c++-mode
-                                             rtags-jump-to-first-match nil)
+                                             )
                                       (auto-completion :variables
                                                        auto-completion-return-key-behavior 'complete
                                                        auto-completion-tab-key-behavior 'cycle
@@ -25,7 +24,7 @@
                                               ranger-show-hidden t)
                                       (git :variables git-magit-status-fullscreen t)
                                       smex
-
-                                      (perforce)
-                                      (command-log)
+                                      cscope
+                                      perforce
+                                      command-log
                                       ))
