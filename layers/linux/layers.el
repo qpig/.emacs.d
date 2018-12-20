@@ -2,8 +2,8 @@
                                       emacs-lisp
                                       (c-c++ :variables
                                              c-c++-enable-c++11 t
-                                             c-c++-default-mode-for-headers 'c++-mode
-                                             )
+                                             c-c++-default-mode-for-headers 'c++-mode)
+
                                       (auto-completion :variables
                                                        auto-completion-return-key-behavior 'complete
                                                        auto-completion-tab-key-behavior 'cycle
@@ -24,7 +24,16 @@
                                               ranger-show-hidden t)
                                       (git :variables git-magit-status-fullscreen t)
                                       smex
-                                      cscope
                                       perforce
                                       command-log
-                                      ))
+
+                                      (copy-as-format :variables
+                                                      copy-as-format-default "markdown")
+                                      multiple-cursors
+                                      parinfer
+                                      treemacs
+                                      gtags
+                                      evil-snipe
+                                      vim-empty-lines
+                                      vinegar
+                                      helm))
