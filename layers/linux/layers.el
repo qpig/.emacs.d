@@ -30,7 +30,6 @@
                                       (copy-as-format :variables
                                                       copy-as-format-default "markdown")
                                       multiple-cursors
-                                      parinfer
                                       treemacs
                                       gtags
                                       evil-snipe
